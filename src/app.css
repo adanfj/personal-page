@@ -14,3 +14,7 @@ nav {
 iframe{ 
     @apply aspect-video;
 }
+
+*{
+    @apply transition-all duration-200;
+}

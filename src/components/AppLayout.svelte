@@ -2,8 +2,9 @@
     import "../app.css";
     import Fa from "svelte-fa";
     import { faBars, faMicrophone } from "@fortawesome/free-solid-svg-icons";
-    import { faFacebook, faYoutube } from "@fortawesome/free-brands-svg-icons";
+    import { faFacebook, faInstagram, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
     import { LightSwitch } from "@skeletonlabs/skeleton";
+    import { fly } from "svelte/transition";
     export let socialMedia: { [k: string]: URL } = {};
     export let links: { [k: string]: string } = {};
     export let currentPath: string;
@@ -35,6 +36,9 @@
     const linkIcons = {
         facebook: faFacebook,
         youtube: faYoutube,
+        twitch: faTwitch,
+        twitter: faTwitter,
+        instagram: faInstagram
     };
 </script>
 
@@ -75,7 +79,8 @@
     </div>
     {#if navOpen}
         <div
-            class="fixed z-20 top-0 right-0 variant-filled-surface flex flex-col lg:hidden max-w-[20rem] w-full shadow-md"
+            transition:fly={{x:"400px"}}
+            class="fixed z-20 top-0 right-0 bg-surface-600-300-token text-surface-50-900-token flex flex-col lg:hidden max-w-[20rem] w-full shadow-md"
         >
             <div
                 class="p-4 border-b border-b-surface-500 dark:border-b-surface-400 flex flex-col space-y-8"
