@@ -1,11 +1,14 @@
 ---
+import AppLayout from "../components/AppLayout.svelte";
 interface Props {
 	title: string;
 }
-
 const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+const links = {"/":"Inicio", "/blog/": "Blog", "/about/": "Sobre mí" };
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -14,8 +17,31 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script>
+			import flamethrower from "flamethrower-router";
+			const router = flamethrower({
+				log: true,
+				pageTransitions: true,
+				pageTransition:"fade",
+				prefetch: "visible",
+			});
+		</script>
 	</head>
 	<body data-theme="wintry">
-		<slot />
+		<AppLayout
+			client:visible
+			socialMedia={{
+				facebook: new URL(
+					"https://www.facebook.com/people/Adan-FJ-Oficial/61552076938560/",
+				),
+				youtube: new URL(
+					"https://www.youtube.com/channel/UCIGFE-morCmQsJ93ypV94ww"
+				)
+			}}
+			links={links}
+			currentPath={currentPath}
+		>
+			<slot />
+		</AppLayout>
 	</body>
 </html>
