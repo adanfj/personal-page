@@ -2,8 +2,8 @@
     import "../app.css";
     import Fa from "svelte-fa";
     import { faBars, faMicrophone, faVideo } from "@fortawesome/free-solid-svg-icons";
-    import { faFacebook, faInstagram, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-    import { LightSwitch } from "@skeletonlabs/skeleton";
+    import { faFacebook, faInstagram, faPatreon, faPaypal, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+    // import { LightSwitch } from "@skeletonlabs/skeleton";
     import { fly } from "svelte/transition";
     export let socialMedia: { [k: string]: URL } = {};
     export let links: { [k: string]: string } = {};
@@ -38,7 +38,9 @@
         youtube: faYoutube,
         twitch: faTwitch,
         twitter: faTwitter,
-        instagram: faInstagram
+        instagram: faInstagram,
+        patreon:faPatreon,
+        paypal:faPaypal
     };
 </script>
 
@@ -75,7 +77,7 @@
                 >
             {/each}
         </div>
-        <LightSwitch />
+        <!-- <LightSwitch /> -->
     </div>
     {#if navOpen}
         <div
@@ -105,7 +107,7 @@
                         >
                     {/each}
                 </div>
-                <LightSwitch />
+                <!-- <LightSwitch /> -->
             </div>
         </div>
     {/if}

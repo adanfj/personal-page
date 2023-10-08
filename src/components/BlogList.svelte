@@ -28,6 +28,8 @@
 </script>
 
 <div class="flex flex-col items-center gap-8">
+    <h1>Blog</h1>
+    <h3>Puedes ver aquí el contenido audiovisual que hago</h3>
     <form class="max-w-4xl w-full">
         <label class="label w-full">
             <p class="font-bold variant-">Busca el post deseado</p>
