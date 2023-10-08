@@ -1,33 +1,65 @@
 ---
-import { faCode, faPaperPlane, faVideoCamera } from "@fortawesome/free-solid-svg-icons";
+import {
+    faCode,
+    faPaperPlane,
+    faVideoCamera,
+} from "@fortawesome/free-solid-svg-icons";
 import Fa from "svelte-fa";
-import AppLayout from "../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
 import { faBlogger } from "@fortawesome/free-brands-svg-icons";
 ---
 
-<AppLayout title="Portfolio">
-    <div class="flex flex-col lg:flex-row items-center w-full justify-around space-y-4 lg:space-y-0">
-        <div class="flex flex-col text-center lg:text-left space-y-2">
-            <h1>Hola! Mi nombre es Adan</h1>
-            <p class="text-2xl">Soy un desarrollador viviendo en España</p>
-            <div class="flex space-x-4 justify-center lg:justify-start">
-                <!-- <p class="badge variant-filled-primary text-lg"> <Fa icon={faPencil}/> <span>Badge</span></p> -->
-                <p class="badge variant-filled-secondary text-lg"> <Fa icon={faVideoCamera}/> <span>VLogger</span></p>
-                <p class="badge variant-filled-secondary text-lg"> <Fa icon={faCode}/> <span>Programador</span></p>
+<Layout title="Portfolio">
+    <Fragment slot="body">
+        <div
+            class="flex flex-col lg:flex-row items-center w-full justify-around space-y-4 lg:space-y-0"
+        >
+            <div class="flex flex-col text-center lg:text-left space-y-2">
+                <h1>Hola! Mi nombre es Adan</h1>
+                <p class="text-2xl">Soy un desarrollador viviendo en España</p>
+                <div class="flex space-x-4 justify-center lg:justify-start">
+                    <!-- <p class="badge variant-filled-primary text-lg"> <Fa icon={faPencil}/> <span>Badge</span></p> -->
+                    <p class="badge variant-filled-secondary text-lg">
+                        <Fa icon={faVideoCamera} />
+                        <span>VLogger</span>
+                    </p>
+                    <p class="badge variant-filled-secondary text-lg">
+                        <Fa icon={faCode} />
+                        <span>Programador</span>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <img
+                    src="/portrait.jpg"
+                    alt="Portrait photo"
+                    class="rounded-token aspect-[3/4] object-cover w-80 shadow-md"
+                />
             </div>
         </div>
-        <div>
-            <img src="/portrait.png" alt="Portrait photo" class="rounded-3xl aspect-[3/4] object-cover w-80" >
+
+        <div
+            class="mt-8 border-t border-t-surface-500 dark:border-t-surface-400 py-8 flex justify-around flex-wrap gap-8 items-center"
+        >
+            <!-- <p class="font-bold text-4xl">Explora mi contenido!</p> -->
+            <a
+                href="/blog"
+                class="btn flex w-fit variant-filled-tertiary items-center"
+                ><h1>Explora mi contenido</h1>
+                <Fa icon={faBlogger} size="1.75x" /></a
+            >
         </div>
-    </div>
 
-    <div class="mt-8 border-t border-t-surface-500 dark:border-t-surface-400 py-8 flex justify-around flex-wrap gap-8 items-center">
-        <!-- <p class="font-bold text-4xl">Explora mi contenido!</p> -->
-        <a href="/blog" class="btn flex w-fit variant-filled-tertiary items-center"><p class="text-4xl font-bold">Explora mi contenido!</p> <Fa icon={faBlogger} size="1.75x" /></a>
-    </div>
-
-    <div class="mt-8 dark:border-t-surface-400 py-8 flex justify-around flex-wrap gap-8 items-center">
-        <p class="font-bold text-4xl">Te interesa participar conmigo?</p>
-        <a href="mailto:adanj.farina@gmail.com" class="btn flex w-fit variant-filled-primary items-center"><p class="text-4xl font-bold">Envíame un mensaje</p> <Fa icon={faPaperPlane} size="1.75x" /></a>
-    </div>
-</AppLayout>
+        <div
+            class="mt-8 dark:border-t-surface-400 py-8 flex justify-around flex-wrap gap-8 items-center"
+        >
+            <h1>Te interesa participar conmigo?</h1>
+            <a
+                href="mailto:adanj.farina@gmail.com"
+                class="btn flex w-fit variant-filled-primary items-center"
+                ><h1>Envíame un mensaje</h1>
+                <Fa icon={faPaperPlane} size="1.75x" /></a
+            >
+        </div>
+    </Fragment>
+</Layout>

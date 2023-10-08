@@ -4,6 +4,7 @@ import { join } from 'path';
 // 1. Import the Skeleton plugin
 import { skeleton } from '@skeletonlabs/tw-plugin';
 import forms from '@tailwindcss/forms';
+import { blogTheme1 } from './src/theme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -25,7 +26,15 @@ export default {
       themes: { preset: [ {
         name:"wintry",
         enhancements:true
-      } ] }
+      },{
+		name:"gold-nouveau",
+		enhancements:true
+	  },{
+		name:"seafoam",
+		enhancements:true
+	  } ], custom:[
+		blogTheme1
+	  ] }
     }),
     forms
   ]

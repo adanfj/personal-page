@@ -1,7 +1,7 @@
 <script lang="ts">
     import "../app.css";
     import Fa from "svelte-fa";
-    import { faBars, faMicrophone } from "@fortawesome/free-solid-svg-icons";
+    import { faBars, faMicrophone, faVideo } from "@fortawesome/free-solid-svg-icons";
     import { faFacebook, faInstagram, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
     import { LightSwitch } from "@skeletonlabs/skeleton";
     import { fly } from "svelte/transition";
@@ -47,23 +47,23 @@
     class="px-8 py-8 lg:px-24 justify-between items-center"
 >
     <a href="/" class="flex space-x-4 items-center hover:variant-soft-primary dark:hover:bg-transparent hover:bg-transparent">
-        <Fa icon={faMicrophone} size="2x" />
+        <Fa icon={faVideo} size="2x" />
         <h2 class="">Adan</h2>
     </a>
-    <div class="variant-filled-surface rounded-full p-4 space-x-4 shadow-md shadow-surface-400 dark:shadow-surface-600 hidden lg:block">
+    <div class="variant-filled-surface rounded-container-token p-4 space-x-4 shadow-md shadow-surface-400 dark:shadow-surface-600 hidden lg:block">
         {#each Object.entries(links) as [link, title]}
             <a
                 href={link}
-                class="text-xl rounded-full py-2 px-4 font-bold"
+                class="text-xl rounded-container-token py-2 px-4 font-bold"
                 class:variant-filled={isCurrentPath(link)}>{title}</a
             >
         {/each}
     </div>
     <button
-        class="btn flex justify-center items-center lg:hidden bg-surface-100-800-token rounded-full w-8 aspect-square"
+        class="btn flex justify-center items-center lg:hidden bg-surface-100-800-token rounded-container-token w-8 aspect-square"
         on:click={() => (navOpen = !navOpen)}><Fa icon={faBars} /></button
     >
-    <div class="hidden lg:flex space-x-4 items-center">
+    <div class="hidden lg:flex gap-8 items-center">
         <div class="flex space-x-4 items-center">
             {#each Object.entries(socialMedia) as [name, link]}
                 <a href={link.href} target="_blank"
@@ -115,7 +115,7 @@
     <slot />
 </div>
 
-<footer class="w-full mt-16 bottom-0 flex flex-col variant-filled-surface py-8 text-center items-center space-y-2">
+<footer>
     <p class="font-bold">&copy;{new Date().getFullYear()} Adan. Todos los derechos reservados.</p>
     <div class="flex space-x-4 items-center">
         {#each Object.entries(socialMedia) as [name, link]}

@@ -1,34 +1,39 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import BlogPreview from '../../components/BlogPreview.svelte';
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BlogPreview from "../../components/BlogPreview.svelte";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = await getCollection("blog");
 	return posts.map((post) => ({
 		params: { slug: post.slug },
 		props: post,
 	}));
 }
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await post.render();
 ---
 
 <Layout title={post.data.title}>
-	<ol class="breadcrumb">
-		<li class="crumb"><a class="anchor" href="/blog">Blog</a></li>
-		<li class="crumb-separator" aria-hidden>&rsaquo;</li>
-		<!-- <li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Elements</a></li>
+	<Fragment slot="head">
+		{post.data.private?<meta name="robots" content="noindex">:<></>}
+	</Fragment>
+		<Fragment slot="body">
+		<ol class="breadcrumb">
+			<li class="crumb"><a class="anchor" href="/blog">Blog</a></li>
+			<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+			<!-- <li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Elements</a></li>
 		<li class="crumb-separator" aria-hidden>&rsaquo;</li> -->
-		<li>{post.data.title}</li>
-	</ol>
-	<div class="flex justify-center mt-8">
-        <div class="flex flex-col gap-4 max-w-4xl">
-			<BlogPreview {...post.data} />
-			<div class=""></div>
-			<Content />
-        </div>
-    </div>
+			<li>{post.data.title}</li>
+		</ol>
+		<div class="flex justify-center mt-8">
+			<div class="flex flex-col gap-4 max-w-4xl">
+				<BlogPreview {...post.data} />
+				<div class=""></div>
+				<Content />
+			</div>
+		</div>
+	</Fragment>
 </Layout>

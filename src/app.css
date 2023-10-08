@@ -1,3 +1,15 @@
+[data-theme="theme-1"]{
+    background-image: radial-gradient(at 0% 100%,rgba(var(--color-secondary-500) / .33) 0px,transparent 50%),radial-gradient(at 98% 100%,rgba(var(--color-error-500) / .33) 0px,transparent 50%);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+[data-theme="wintry"]{
+    --theme-rounded-base: 4px !important;
+	--theme-rounded-container: 4px !important;
+}
 h1 {
     @apply h1;
 }
@@ -17,4 +29,12 @@ iframe{
 
 *{
     @apply transition-all duration-200;
+}
+
+body{
+    @apply min-h-screen relative;
+}
+
+footer{
+    @apply absolute -bottom-64 w-full mt-16 flex flex-col variant-filled-surface py-8 text-center items-center space-y-2;
 }

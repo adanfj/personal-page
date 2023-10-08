@@ -1,18 +1,22 @@
 <script lang="ts">
-    export let image: string;
-    export let title: string;
-    export let href: string;
-    export let publishDate: Date;
+    export let image : string = undefined;
+    export let title: string = "Blog post";
+    export let href: string = undefined;
+    export let publishDate: Date = undefined;
     export let grid = "";
     export let reverse = false;
 </script>
 
 <a {href} class="w-full {grid} text-center" class:link={href}>
+    {#if image}
     <img
-        src={image}
-        alt={title}
-        class="rounded-xl w-full aspect-video object-cover shadow-surface-400 dark:shadow-surface-600"
-    />
+    src={image}
+    alt={title}
+    class="rounded-token w-full aspect-video object-cover shadow-surface-400 dark:shadow-surface-600"
+/>
+{:else}
+     <div class="rounded-token w-full aspect-video object-cover shadow-surface-400 dark:shadow-surface-600" style="background-color: hsl({Math.floor(Math.random()*360)}, 65%, 50%);"></div>
+    {/if}
     <div class="flex space-y-4 mt-4"
     class:flex-col-reverse={reverse}
     class:flex-col={!reverse}

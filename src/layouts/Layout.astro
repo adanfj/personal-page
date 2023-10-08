@@ -16,7 +16,8 @@ const links = {"/":"Inicio", "/blog/": "Blog", "/about/": "Sobre mí" };
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+			<slot name="head" />
+			<title>{title}</title>
 		<script>
 			import flamethrower from "flamethrower-router";
 			const router = flamethrower({
@@ -27,7 +28,7 @@ const links = {"/":"Inicio", "/blog/": "Blog", "/about/": "Sobre mí" };
 			});
 		</script>
 	</head>
-	<body data-theme="wintry">
+	<body data-theme="gold-nouveau">
 		<AppLayout
 			client:visible
 			socialMedia={{
@@ -47,7 +48,7 @@ const links = {"/":"Inicio", "/blog/": "Blog", "/about/": "Sobre mí" };
 			links={links}
 			currentPath={currentPath}
 		>
-			<slot />
+			<slot name="body" />
 		</AppLayout>
 	</body>
 </html>
