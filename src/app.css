@@ -38,3 +38,10 @@ body{
 footer{
     @apply absolute -bottom-64 w-full mt-16 flex flex-col variant-filled-surface py-8 text-center items-center space-y-2;
 }
+
+.link:hover img {
+    @apply shadow-2xl;
+}
+.link:hover * {
+    @apply text-primary-500-400-token;
+}

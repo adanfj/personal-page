@@ -2,6 +2,8 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogPreview from "../../components/BlogPreview.svelte";
+import { Schema } from "astro-seo-schema";
+import { Seo } from "astro-seo-meta";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
@@ -18,9 +20,36 @@ const { Content } = await post.render();
 
 <Layout title={post.data.title}>
 	<Fragment slot="head">
-		{post.data.private?<meta name="robots" content="noindex">:<></>}
+		<Schema
+			item={{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "Article",
+						author: "Adan FJ",
+						datePublished:post.data.publishDate.toISOString(),
+						image:`${post.data.image}`
+					},
+				],
+			}}
+		/>
+		<Seo
+			title={post.data.title}
+			description={post.data.description}
+			facebook={{
+				image: "favicong.svg",
+				type: "article",
+				url: "",
+			}}
+			twitter={{
+				card:"summary",
+				image:`${post.data.image}`,
+				site:"@adan_fj"
+			}}
+		/>
+		{post.data.private && <meta name="robots" content="noindex" />}
 	</Fragment>
-		<Fragment slot="body">
+	<Fragment slot="body">
 		<ol class="breadcrumb">
 			<li class="crumb"><a class="anchor" href="/blog">Blog</a></li>
 			<li class="crumb-separator" aria-hidden>&rsaquo;</li>
