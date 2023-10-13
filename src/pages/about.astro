@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+const years = (date: Date) => {
+    let years = 0,
+        refDate = new Date(date.getFullYear()+1,date.getMonth(),date.getDate()),
+        now = new Date();
+    while (refDate.getTime() < now.getTime()) {
+        refDate = new Date(refDate.getFullYear()+1,refDate.getMonth(),refDate.getDate());
+        console.log(refDate)
+        years++;
+    }
+    return years;
+};
+---
+
+<Layout title="Portfolio">
+    <Fragment slot="body">
+        <div
+            class="flex flex-col lg:flex-row items-center w-full justify-around space-y-4 lg:space-y-0"
+        >
+            <div class="flex flex-col text-center lg:text-justify space-y-2">
+                <h1>Sobre Adan</h1>
+                <p class="text-2xl">
+                    Mi nombre es Adan, tengo {years(new Date("July 8 1998"))}
+                     años y mi actual dedicación es la programación de aplicaciones web.
+                </p>
+                <p class="text-2xl">
+                    He estudiado el ciclo superior de desarrollo de aplicaciones web en el IES San Clemente
+                </p>
+            </div>
+            <div>
+                <img
+                    src="/portrait.jpg"
+                    alt="Portrait photo"
+                    class="rounded-token aspect-[3/4] object-cover w-80 shadow-md"
+                />
+            </div>
+        </div>
+
+        <div class="mt-8 py-8 flex justify-around flex-wrap gap-8 items-center">
+            <h1>EXTRA CONTENT?</h1>
+        </div>
+    </Fragment>
+</Layout>

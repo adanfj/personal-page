@@ -1,9 +1,9 @@
 <script lang="ts">
-    import "../app.css";
-    import Fa from "svelte-fa";
-    import { faBars, faMicrophone, faVideo } from "@fortawesome/free-solid-svg-icons";
     import { faFacebook, faInstagram, faPatreon, faPaypal, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-    // import { LightSwitch } from "@skeletonlabs/skeleton";
+    import { faBars, faVideo } from "@fortawesome/free-solid-svg-icons";
+    import Fa from "svelte-fa";
+    import "../app.css";
+// import { LightSwitch } from "@skeletonlabs/skeleton";
     import { fly } from "svelte/transition";
     export let socialMedia: { [k: string]: URL } = {};
     export let links: { [k: string]: string } = {};
@@ -34,13 +34,13 @@
     }
     let navOpen = false;
     const linkIcons = {
-        facebook: faFacebook,
-        youtube: faYoutube,
-        twitch: faTwitch,
-        twitter: faTwitter,
-        instagram: faInstagram,
-        patreon:faPatreon,
-        paypal:faPaypal
+        Facebook: faFacebook,
+        Youtube: faYoutube,
+        Twitch: faTwitch,
+        Twitter: faTwitter,
+        Instagram: faInstagram,
+        Patreon:faPatreon,
+        Paypal:faPaypal
     };
 </script>
 
@@ -63,12 +63,13 @@
     </div>
     <button
         class="btn flex justify-center items-center lg:hidden bg-surface-100-800-token rounded-container-token w-8 aspect-square"
+        title="Abrir menú de navegación"
         on:click={() => (navOpen = !navOpen)}><Fa icon={faBars} /></button
     >
     <div class="hidden lg:flex gap-8 items-center">
         <div class="flex space-x-4 items-center">
             {#each Object.entries(socialMedia) as [name, link]}
-                <a href={link.href} target="_blank"
+                <a href={link.href} target="_blank" aria-label="Accede a mi link de {name}"
                     ><Fa
                         icon={linkIcons[name]}
                         size="2x"
@@ -121,11 +122,11 @@
     <p class="font-bold">&copy;{new Date().getFullYear()} Adan. Todos los derechos reservados.</p>
     <div class="flex space-x-4 items-center">
         {#each Object.entries(socialMedia) as [name, link]}
-            <a href={link.href} target="_blank"
+            <a href={link.href} target="_blank" aria-label="Accede a mi link de {name}"
                 ><Fa
                     icon={linkIcons[name]}
                     size="2x"
-                    class="hover:text-surface-600-300-token text-surface-500-400-token"
+                    class="hover:text-surface-900-50-token text-surface-700-200-token"
                 /></a>
         {/each}
     </div>

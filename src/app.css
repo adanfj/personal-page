@@ -36,7 +36,7 @@ body{
 }
 
 footer{
-    @apply absolute -bottom-64 w-full mt-16 flex flex-col variant-filled-surface py-8 text-center items-center space-y-2;
+    @apply absolute -bottom-64 w-full mt-16 flex flex-col bg-surface-300-600-token py-8 text-center items-center space-y-2;
 }
 
 .link:hover img {
