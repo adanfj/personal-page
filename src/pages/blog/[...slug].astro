@@ -47,7 +47,7 @@ const { Content } = await post.render();
 				site:"@adan_fj"
 			}}
 		/>
-		{post.data.private && <meta name="robots" content="noindex" />}
+		{post.data.private ? <meta name="robots" content="noindex" />:<></>}
 	</Fragment>
 	<Fragment slot="body">
 		<ol class="breadcrumb">
