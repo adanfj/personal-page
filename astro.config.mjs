@@ -16,5 +16,10 @@ export default defineConfig({
       noExternal: ['@skeletonlabs/skeleton/styles']
     }
   },
-  integrations: [tailwind(), svelte(), mdx(), purgecss(),compress()]
+  integrations: [tailwind(), svelte(), mdx(), purgecss(),compress({
+    JavaScript:true,
+    SVG:true,
+    CSS:true,
+    HTML:true
+  })]
 });
