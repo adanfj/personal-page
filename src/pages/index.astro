@@ -1,32 +1,46 @@
 ---
+import { faBlogger, faCss3, faHtml5, faJs, faVuejs } from "@fortawesome/free-brands-svg-icons";
 import {
-    faCode,
-    faPaperPlane,
-    faVideoCamera,
+faPaperPlane
 } from "@fortawesome/free-solid-svg-icons";
+import svelteIcon from '@iconify/icons-simple-icons/svelte';
+import Icon from '@iconify/svelte';
 import Fa from "svelte-fa";
 import Layout from "../layouts/Layout.astro";
-import { faBlogger } from "@fortawesome/free-brands-svg-icons";
 ---
 
 <Layout title="Portfolio">
     <Fragment slot="body">
         <div
-            class="flex flex-col lg:flex-row items-center w-full justify-around space-y-4 lg:space-y-0"
+            class="flex flex-col lg:flex-row items-center w-full justify-around space-y-4 lg:space-y-0 mb-8 pb-8 border-b border-b-surface-500 dark:border-b-surface-400"
         >
-            <div class="flex flex-col text-center lg:text-left space-y-2">
+            <div class="flex flex-col text-center lg:text-left gap-2">
                 <h1>Hola! Mi nombre es Adan</h1>
-                <p class="text-2xl">Soy un desarrollador viviendo en España</p>
-                <div class="flex space-x-4 justify-center lg:justify-start">
+                <p class="text-2xl">Soy un desarrollador de aplicaciones web viviendo en España.</p>
+                <p class="text-xl mt-4">Creo páginas web de cero usando las siguientes tecnologías:</p>
+                <div class="flex gap-4 justify-center lg:justify-start flex-wrap">
                     <!-- <p class="badge variant-filled-primary text-lg"> <Fa icon={faPencil}/> <span>Badge</span></p> -->
                     <p class="badge variant-filled-secondary text-lg">
-                        <Fa icon={faVideoCamera} />
-                        <span>VLogger</span>
+                        <Fa icon={faJs} />
+                        <span>Javascript</span>
                     </p>
                     <p class="badge variant-filled-secondary text-lg">
-                        <Fa icon={faCode} />
-                        <span>Programador</span>
+                        <Fa icon={faHtml5} />
+                        <span>HTML5</span>
                     </p>
+                    <p class="badge variant-filled-secondary text-lg">
+                        <Fa icon={faCss3} />
+                        <span>CSS</span>
+                    </p>
+                    <p class="badge variant-filled-secondary text-lg">
+                        <Icon client:visible icon={svelteIcon} />
+                        <span>SvelteKit</span>
+                    </p>
+                    <p class="badge variant-filled-secondary text-lg">
+                        <Fa icon={faVuejs} />
+                        <span>Vue</span>
+                    </p>
+                    
                 </div>
             </div>
             <div>
@@ -39,7 +53,20 @@ import { faBlogger } from "@fortawesome/free-brands-svg-icons";
         </div>
 
         <div
-            class="mt-8 border-t border-t-surface-500 dark:border-t-surface-400 py-8 flex justify-around flex-wrap gap-8 items-center"
+            class="py-8 flex justify-around flex-wrap gap-8 items-center"
+        >
+            
+            <!-- <h1>Contacta conmigo</h1> -->
+            <a
+                href="mailto:adanj.farina@gmail.com"
+                class="btn flex w-fit variant-filled-primary items-center"
+                ><h1>Contacta conmigo</h1>
+                <Fa icon={faPaperPlane} size="1.75x" /></a
+            >
+        </div>
+
+        <div
+            class="dark:border-t-surface-400 py-8 flex justify-around flex-wrap gap-8 items-center"
         >
             <!-- <p class="font-bold text-4xl">Explora mi contenido!</p> -->
             <a
@@ -47,18 +74,6 @@ import { faBlogger } from "@fortawesome/free-brands-svg-icons";
                 class="btn flex w-fit variant-filled-tertiary items-center"
                 ><h1>Explora mi contenido</h1>
                 <Fa icon={faBlogger} size="1.75x" /></a
-            >
-        </div>
-
-        <div
-            class="mt-8 dark:border-t-surface-400 py-8 flex justify-around flex-wrap gap-8 items-center"
-        >
-            <h1>Te interesa participar conmigo?</h1>
-            <a
-                href="mailto:adanj.farina@gmail.com"
-                class="btn flex w-fit variant-filled-primary items-center"
-                ><h1>Envíame un mensaje</h1>
-                <Fa icon={faPaperPlane} size="1.75x" /></a
             >
         </div>
     </Fragment>

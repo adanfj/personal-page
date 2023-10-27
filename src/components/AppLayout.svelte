@@ -1,14 +1,26 @@
 <script lang="ts">
-    import { faFacebook, faInstagram, faPatreon, faPaypal, faTwitch, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+    import {
+        faFacebook,
+        faInstagram,
+        faPatreon,
+        faPaypal,
+        faTwitch,
+        faTwitter,
+        faYoutube,
+    } from "@fortawesome/free-brands-svg-icons";
     import { faBars, faVideo } from "@fortawesome/free-solid-svg-icons";
+    import Icon from "@iconify/svelte";
+    import twotoneWebStories from "@iconify/icons-ic/twotone-web-stories";
     import Fa from "svelte-fa";
     import "../app.css";
-// import { LightSwitch } from "@skeletonlabs/skeleton";
+    // import { LightSwitch } from "@skeletonlabs/skeleton";
     import { fly } from "svelte/transition";
     export let socialMedia: { [k: string]: URL } = {};
     export let links: { [k: string]: string } = {};
     export let currentPath: string;
-    $: isCurrentPath = (link:string)=>(link=="/"&&currentPath==link)||(currentPath.startsWith(link)&&link!="/");
+    $: isCurrentPath = (link: string) =>
+        (link == "/" && currentPath == link) ||
+        (currentPath.startsWith(link) && link != "/");
     function clickOutside(node, { enabled: initialEnabled, cb }) {
         const handleOutsideClick = ({ target }) => {
             if (!node.contains(target)) {
@@ -39,8 +51,8 @@
         Twitch: faTwitch,
         Twitter: faTwitter,
         Instagram: faInstagram,
-        Patreon:faPatreon,
-        Paypal:faPaypal
+        Patreon: faPatreon,
+        Paypal: faPaypal,
     };
 </script>
 
@@ -48,11 +60,17 @@
     use:clickOutside={{ enabled: navOpen, cb: () => (navOpen = false) }}
     class="px-8 py-8 lg:px-24 justify-between items-center"
 >
-    <a href="/" class="flex space-x-4 items-center hover:variant-soft-primary dark:hover:bg-transparent hover:bg-transparent">
-        <Fa icon={faVideo} size="2x" />
+    <a
+        href="/"
+        class="flex space-x-4 items-center hover:variant-soft-primary dark:hover:bg-transparent hover:bg-transparent"
+    >
+        <!-- <Fa icon={faVideo} size="2x" /> -->
+        <Icon icon={twotoneWebStories} width="3rem" />
         <h2 class="">Adan</h2>
     </a>
-    <div class="variant-filled-surface rounded-container-token p-4 space-x-4 shadow-md shadow-surface-400 dark:shadow-surface-600 hidden lg:block">
+    <div
+        class="variant-filled-surface rounded-container-token p-4 space-x-4 shadow-md shadow-surface-400 dark:shadow-surface-600 hidden lg:block"
+    >
         {#each Object.entries(links) as [link, title]}
             <a
                 href={link}
@@ -69,7 +87,10 @@
     <div class="hidden lg:flex gap-8 items-center">
         <div class="flex space-x-4 items-center">
             {#each Object.entries(socialMedia) as [name, link]}
-                <a href={link.href} target="_blank" aria-label="Accede a mi link de {name}"
+                <a
+                    href={link.href}
+                    target="_blank"
+                    aria-label="Accede a mi link de {name}"
                     ><Fa
                         icon={linkIcons[name]}
                         size="2x"
@@ -82,7 +103,7 @@
     </div>
     {#if navOpen}
         <div
-            transition:fly={{x:"400px"}}
+            transition:fly={{ x: "400px" }}
             class="fixed z-20 top-0 right-0 bg-surface-600-300-token text-surface-50-900-token flex flex-col lg:hidden max-w-[20rem] w-full shadow-md"
         >
             <div
@@ -119,15 +140,21 @@
 </div>
 
 <footer>
-    <p class="font-bold">&copy;{new Date().getFullYear()} Adan. Todos los derechos reservados.</p>
+    <p class="font-bold">
+        &copy;{new Date().getFullYear()} Adan. Todos los derechos reservados.
+    </p>
     <div class="flex space-x-4 items-center">
         {#each Object.entries(socialMedia) as [name, link]}
-            <a href={link.href} target="_blank" aria-label="Accede a mi link de {name}"
+            <a
+                href={link.href}
+                target="_blank"
+                aria-label="Accede a mi link de {name}"
                 ><Fa
                     icon={linkIcons[name]}
                     size="2x"
                     class="hover:text-surface-900-50-token text-surface-700-200-token"
-                /></a>
+                /></a
+            >
         {/each}
     </div>
 </footer>

@@ -1,12 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
 const years = (date: Date) => {
     let years = 0,
-        refDate = new Date(date.getFullYear()+1,date.getMonth(),date.getDate()),
+        refDate = new Date(
+            date.getFullYear() + 1,
+            date.getMonth(),
+            date.getDate(),
+        ),
         now = new Date();
     while (refDate.getTime() < now.getTime()) {
-        refDate = new Date(refDate.getFullYear()+1,refDate.getMonth(),refDate.getDate());
-        console.log(refDate)
+        refDate = new Date(
+            refDate.getFullYear() + 1,
+            refDate.getMonth(),
+            refDate.getDate(),
+        );
+        console.log(refDate);
         years++;
     }
     return years;
@@ -18,14 +27,44 @@ const years = (date: Date) => {
         <div
             class="flex flex-col lg:flex-row items-center w-full justify-around space-y-4 lg:space-y-0"
         >
-            <div class="flex flex-col text-center lg:text-justify space-y-2">
+            <div
+                class="flex flex-col text-center lg:text-justify space-y-2 lg:w-1/2"
+            >
                 <h1>Sobre Adan</h1>
                 <p class="text-2xl">
-                    Mi nombre es Adan, tengo {years(new Date("July 8 1998"))}
-                     años y mi actual dedicación es la programación de aplicaciones web.
+                    Mi nombre es Adan y tengo {years(new Date("July 8 1998"))}
+                     años. Soy un desarrollador web apasionado y experto en el
+                    manejo de contenido en redes sociales. Desde mi juventud, he
+                    sentido una profunda curiosidad por la tecnología y la
+                    comunicación digital, lo que me ha llevado a dedicar mi
+                    carrera a la creación de soluciones innovadoras y atractivas
+                    para las necesidades de mis clientes.
                 </p>
+
                 <p class="text-2xl">
-                    He estudiado el ciclo superior de desarrollo de aplicaciones web en el IES San Clemente
+                    Mi formación en desarrollo web, junto con mis habilidades en
+                    programación y diseño, me permiten crear sitios web
+                    dinámicos, funcionales y estéticamente atractivos. Mi
+                    enfoque en la usabilidad y la accesibilidad garantiza que mi
+                    trabajo sea fácil de usar para todos los usuarios.
+                </p>
+
+                <p class="text-2xl">
+                    Además de mi formación en desarrollo web, también tengo
+                    experiencia en el manejo de contenido en redes sociales. He
+                    realizado diversas entrevistas y transmisiones en vivo, lo
+                    que me ha permitido conectar con el público de manera
+                    efectiva. Mi objetivo es crear contenido que sea relevante,
+                    interesante y que atraiga a mis seguidores.
+                </p>
+
+                <p class="text-2xl">
+                    En resumen, soy un desarrollador web y creador de contenido
+                    de redes sociales con una sólida experiencia en la creación
+                    de soluciones tecnológicas y en la comunicación digital.
+                    Estoy comprometido con la calidad de mi trabajo y estoy
+                    siempre buscando nuevas formas de mejorar y adaptarme a las
+                    necesidades de mis clientes y seguidores.
                 </p>
             </div>
             <div>
@@ -37,8 +76,8 @@ const years = (date: Date) => {
             </div>
         </div>
 
-        <div class="mt-8 py-8 flex justify-around flex-wrap gap-8 items-center">
+        <!-- <div class="mt-8 py-8 flex justify-around flex-wrap gap-8 items-center">
             <h1>EXTRA CONTENT?</h1>
-        </div>
+        </div> -->
     </Fragment>
 </Layout>
