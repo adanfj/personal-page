@@ -1,5 +1,6 @@
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
-
+bun.lockb
+package-lock.json
 # Logs
 
 logs
@@ -168,5 +169,3 @@ dist
 .yarn/install-state.gz
 .pnp.\*
 .astro/
-
-bun.lockb
