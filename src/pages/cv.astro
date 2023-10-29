@@ -1,0 +1,33 @@
+---
+import CV from "../components/CV.svelte";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Portfolio" cv={false}>
+    <Fragment slot="body">
+        <div class="flex justify-center">
+            <CV
+                client:visible
+                name={"ADAN JONATHAN FARIÑA FERNÁNDEZ"}
+                profession={"Desarrollador de aplicaciones web"}
+                studies={{
+                    "2014-2016":
+                        "Bachillerato científico-tecnológico (IES Cacheiras)",
+                    "2021-2023":
+                        "Ciclo Superior de Desarrollo de Aplicaciones Web (IES San Clemente)",
+                }}
+                socialMedia={{
+                    "Teléfono / Whatsapp": "641707085",
+                    Email: "adanj.farina@gmail.com",
+                }}
+                experience={{
+                    "2016 - Actualidad": "Desarrollador de aplicaciones web",
+                }}
+                languages={{
+                    "Español": "Nativo",
+                    "Inglés": "Bien/Fluído",
+                }}
+            />
+        </div>
+    </Fragment>
+</Layout>

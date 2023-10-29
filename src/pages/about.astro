@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import Fa from "svelte-fa";
+import { faMapLocation, faMoneyBill } from "@fortawesome/free-solid-svg-icons";
 const years = (date: Date) => {
     let years = 0,
         refDate = new Date(
@@ -25,13 +26,13 @@ const years = (date: Date) => {
 <Layout title="Portfolio">
     <Fragment slot="body">
         <div
-            class="flex flex-col lg:flex-row items-center w-full justify-around space-y-4 lg:space-y-0"
+            class="flex flex-col lg:flex-row w-full justify-around space-y-4 lg:space-y-0"
         >
             <div
-                class="flex flex-col text-center lg:text-justify space-y-2 lg:w-1/2"
+                class="flex flex-col text-center lg:text-justify gap-2 lg:w-1/2"
             >
-                <h1>Sobre Adan</h1>
-                <p class="text-2xl">
+                <h1 class="slide-in-left" style="animation-delay: 0.2s;">Sobre Adan</h1>
+                <p class="text-2xl mt-4 slide-in-left" style="animation-delay: 0.4s;">
                     Mi nombre es Adan y tengo {years(new Date("July 8 1998"))}
                      años. Soy un desarrollador web apasionado y experto en el
                     manejo de contenido en redes sociales. Desde mi juventud, he
@@ -41,7 +42,7 @@ const years = (date: Date) => {
                     para las necesidades de mis clientes.
                 </p>
 
-                <p class="text-2xl">
+                <p class="text-2xl slide-in-left" style="animation-delay: 0.6s;">
                     Mi formación en desarrollo web, junto con mis habilidades en
                     programación y diseño, me permiten crear sitios web
                     dinámicos, funcionales y estéticamente atractivos. Mi
@@ -49,7 +50,7 @@ const years = (date: Date) => {
                     trabajo sea fácil de usar para todos los usuarios.
                 </p>
 
-                <p class="text-2xl">
+                <p class="text-2xl slide-in-left" style="animation-delay: 0.8s;">
                     Además de mi formación en desarrollo web, también tengo
                     experiencia en el manejo de contenido en redes sociales. He
                     realizado diversas entrevistas y transmisiones en vivo, lo
@@ -58,7 +59,7 @@ const years = (date: Date) => {
                     interesante y que atraiga a mis seguidores.
                 </p>
 
-                <p class="text-2xl">
+                <p class="text-2xl slide-in-left" style="animation-delay: 1s;">
                     En resumen, soy un desarrollador web y creador de contenido
                     de redes sociales con una sólida experiencia en la creación
                     de soluciones tecnológicas y en la comunicación digital.
@@ -66,8 +67,57 @@ const years = (date: Date) => {
                     siempre buscando nuevas formas de mejorar y adaptarme a las
                     necesidades de mis clientes y seguidores.
                 </p>
+                <div class="border-t-2 border-surface-300-600-token mt-4 mb-12"></div>
+                <div id="services">
+                    <h1 class="slide-in-left" style="animation-delay: 0.2s;">Servicios de Creación de Páginas web y Apps</h1>
+                    <p class="text-4xl italic my-4 font-bold slide-in-left" style="animation-delay: 0.4s;">
+                        Adan Fariña Fernández
+                    </p>
+                    <div class="border-t-2 border-surface-600-300-token my-4">
+                    </div>
+                    <p class="text-2xl slide-in-left" style="animation-delay: 0.6s;">
+                        Me especializo en la implementación de diseños en todo
+                        el ciclo de desarrollo, desde la idea hasta la
+                        finalización del proyecto. Aporto experiencia y
+                        habilidades técnicas para garantizar soluciones
+                        innovadoras y de vanguardia. Estoy comprometido con la
+                        satisfacción del cliente y la entrega de proyectos de
+                        calidad.
+                    </p>
+                    <p class="text-2xl slide-in-left" style="animation-delay: 0.8s;">
+                        Póngase en contacto conmigo para hablar de su próximo
+                        proyecto web.
+                    </p>
+                    <div class="border-t-2 border-surface-600-300-token my-4">
+                    </div>
+                    <div class="flex text-xl gap-2 slide-in-left" style="animation-delay: 1s;">
+                        <div class="mt-1"><Fa icon={faMapLocation} /></div>
+                        <div>
+                            <p class="font-bold">Localización</p>
+                            <p>Galicia, España (en remoto)</p>
+                        </div>
+                    </div>
+                    <div class="flex text-xl gap-2 slide-in-left" style="animation-delay: 1.2s;">
+                        <div class="mt-1"><Fa icon={faMoneyBill} /></div>
+                        <div>
+                            <p class="font-bold">Precio</p>
+                            <p>Desde 15€/hora</p>
+                        </div>
+                    </div>
+                    <div class="border-t-2 border-surface-600-300-token my-4">
+                    </div>
+
+                    <p class="text-4xl slide-in-left" style="animation-delay: 1.4s;">
+                        Teléfono/Whatsapp: <span class="font-bold"
+                            >641707085</span>
+                    </p>
+                    <p class="text-4xl mb-96 slide-in-left" style="animation-delay: 1.6s;">
+                        Correo: <span class="font-bold"
+                            >adanj.farina@gmail.com</span>
+                    </p>
+                </div>
             </div>
-            <div>
+            <div class="sticky top-16 h-fit rotate-in-ver">
                 <img
                     src="/portrait.jpg"
                     alt="Portrait photo"

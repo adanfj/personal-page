@@ -3,10 +3,11 @@ import AppLayout from "../components/AppLayout.svelte";
 
 interface Props {
 	title: string;
+	cv?: boolean;
 }
-const { title } = Astro.props;
+const { title,cv } = Astro.props;
 const currentPath = Astro.url.pathname;
-const links = { "/": "Inicio", "/blog/": "Blog", "/about/": "Sobre mí" };
+const links = { "/": "Inicio", "/blog/": "Blog", "/about/": "Sobre mí","/cv/": "CV" };
 
 ---
 
@@ -33,6 +34,7 @@ const links = { "/": "Inicio", "/blog/": "Blog", "/about/": "Sobre mí" };
 	</head>
 	<body data-theme="gold-nouveau">
 		<AppLayout
+			cv={cv}
 			client:visible
 			socialMedia={{
 				Facebook: new URL(
