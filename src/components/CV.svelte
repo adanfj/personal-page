@@ -32,13 +32,13 @@
 
 <div
     id="cv"
-    class="grid w-[64rem] py-4 slide-in-fwd-center"
-    style="grid-template-columns: repeat(14, minmax(0, 1fr));"
+    class="grid py-4 slide-in-fwd-center" 
+    style="grid-template-columns: repeat(14, minmax(0, 1fr)); width: 64rem"
 >
     <div
         class="flex flex-col items-center bg-primary-300 dark:bg-primary-900 col-span-5 py-12 gap-24 h-full"
     >
-        <div class="w-[70%] space-y-8">
+        <div class="space-y-8" style="width:70%">
             <div class="rounded-full overflow-hidden slide-in-fwd-center" style="animation-delay: 0.5s">
                 <img class="slide-in-fwd-center w-full" src="/portrait.jpg" alt="" />
             </div>
@@ -52,7 +52,7 @@
                 </Group>
             </div>
         </div>
-        <div class="w-[80%] slide-in-left" style="animation-delay: 0.8s;">
+        <div class="slide-in-left" style="animation-delay: 0.8s;width:80%;">
             <Group title="Contacta conmigo">
                 <ul>
                     {#each Object.entries(socialMedia) as [k, value]}
@@ -64,7 +64,7 @@
     </div>
     <div class="col-span-9 flex flex-col">
         <div
-            class="aspect-[16/7.5] bg-primary-600-300-token text-primary-200-700-token flex flex-col items-center text-center pt-12 pb-16"
+            class="bg-primary-600-300-token text-primary-200-700-token flex flex-col items-center text-center pt-12 pb-16" style="aspect-ratio: 16/7.5;"
         >
             <h1>{name}</h1>
             <p>{profession}</p>
