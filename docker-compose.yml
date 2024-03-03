@@ -1,29 +1,14 @@
 version: '3.9'
 
 services:
-  db:
-    image: mysql
-    env_file:
-      - .env
-    volumes:
-      - db:/var/lib/mysql
-  # api:
-  #   build: api
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ./api:/app
   app:
     build: app
     env_file:
       - .env
-    # depends_on:
-    #   - api
     ports:
       - 4000:4000
     volumes:
       - ./app/src:/app/src
-      # - ./app/cluster.mjs:/app/cluster.mjs
       - ./app/tsconfig.json:/app/tsconfig.json
       - ./app/astro.config.mjs:/app/astro.config.mjs
       - ./app/svelte.config.js:/app/svelte.config.js
