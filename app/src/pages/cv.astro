@@ -1,0 +1,44 @@
+---
+import CV from "../components/CV.svelte";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Portfolio" cv={false}>
+    <Fragment slot="body">
+        <div class="flex justify-center">
+            <CV
+                client:visible
+                name={"ADAN JONATHAN FARIÑA FERNÁNDEZ"}
+                description = {[`Mi nombre es Adan y tengo %YEARS% años. Soy un desarrollador web apasionado y experto en la programación de aplicaciones óptimas y atractivas para las necesidades de mis clientes, así como en la solución de problemas relacionados con la programación. Desde mi juventud, he sentido una profunda curiosidad por la tecnología y la comunicación digital, lo que me ha llevado a dedicar mi carrera a este camino.`,`Mi formación en desarrollo web, junto con mis habilidades en programación, me permiten crear sitios web dinámicos, funcionales, y estéticamente atractivos en función del diseño a implementar. Mi enfoque en la usabilidad y la accesibilidad garantiza que mi trabajo sea fácil de usar para todos los usuarios.`]}
+                profession={"Desarrollador de aplicaciones web"}
+                studies={{
+                    "2014-2016":
+                        "Bachillerato científico-tecnológico (IES Cacheiras)",
+                    "2021-2023":
+                        "Ciclo Superior de Desarrollo de Aplicaciones Web (IES San Clemente)",
+                }}
+                socialMedia={{
+                    "Teléfono / Whatsapp": "641707085",
+                    Email: "adanj.farina@gmail.com",
+                    Linkedin: "https://www.linkedin.com/in/adanf-f/",
+                }}
+                experience={{
+                    "2018 - 2020": "Bots de compra-venta (Python)",
+                    "2020 - 2021": "Sintaxe - Proyecto enfocado en la enseñanza infantil (JavaScript, CSS)",
+                    "2021 - 2022": "Diversos proyectos enfocados en el uso y entrenamiento de modelos de IA (Python, CSS, Frameworks de JavaScript)",
+                    "2023 - Actualidad": "Diversos proyectos enfocados en mejorar la experiencia de ciertos sectores de la sociedad, como los streamers (Frameworks de JavaScript, CSS)",
+                    "Abril 2023 - Actualidad": "The Watgroup - Arreglo de problemas relacionados con sus aplicaciones web (Wordpress, PHP, Symfony)",
+                }}
+                languages={{
+                    "Español": "Nativo",
+                    "Inglés": "Bien/Fluído",
+                }}
+                availability={{
+                    "Movilidad disponible":"Al rededor de Santiago de Compostela, A Coruña, Pontevedra",
+                    "Lugar de trabajo":"En Remoto"
+                }}
+                IT={["CSS","SvelteKit","TailwindCSS","ReactJS","NextJS","Vue","PHP","Python"]}
+            />
+        </div>
+    </Fragment>
+</Layout>

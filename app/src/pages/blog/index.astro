@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import BlogList from "../../components/BlogList.svelte";
+import Layout from "../../layouts/Layout.astro";
+
+const posts = (await getCollection('blog'))
+.filter(post=>!post.data.private)
+.sort(
+	(a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf()
+);
+
+---
+
+<Layout title="Posts">
+    <!-- <div class="flex justify-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl">
+        {posts.map((post, i) => <BlogPreview client:visible {...post.data} href={`/${post.collection}/${post.slug}`} grid={i==0?'col-span-2':``} />)}
+    </div>
+</div> -->
+    <BlogList slot="body" posts={posts} client:visible></BlogList>
+</Layout>

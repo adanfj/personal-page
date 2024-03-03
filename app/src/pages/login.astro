@@ -1,0 +1,20 @@
+---
+import { faBlogger, faCss3, faHtml5, faJs, faVuejs } from "@fortawesome/free-brands-svg-icons";
+import {
+faPaperPlane
+} from "@fortawesome/free-solid-svg-icons";
+import svelteIcon from '@iconify/icons-simple-icons/svelte';
+import Icon from '@iconify/svelte';
+import Fa from "svelte-fa";
+import QrReader from "../components/QrReader.svelte"
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="Portfolio">
+    <Fragment slot="body">
+        <div class="bg-primary-500">
+            <QrReader client:load PUBLIC_KEY={import.meta.env.PUBLIC_KEY}/>
+        </div>
+    </Fragment>
+</Layout>

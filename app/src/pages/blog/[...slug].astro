@@ -1,0 +1,68 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BlogPreview from "../../components/BlogPreview.svelte";
+import { Schema } from "astro-seo-schema";
+import { Seo } from "astro-seo-meta";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+	<Fragment slot="head">
+		<Schema
+			item={{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "Article",
+						author: "Adan FJ",
+						datePublished:post.data.publishDate.toISOString(),
+						image:`${post.data.image}`
+					},
+				],
+			}}
+		/>
+		<Seo
+			title={post.data.title}
+			description={post.data.description}
+			facebook={{
+				image: "favicong.svg",
+				type: "article",
+				url: "",
+			}}
+			twitter={{
+				card:"summary",
+				image:`${post.data.image}`,
+				site:"@adan_fj"
+			}}
+		/>
+		{post.data.private ? <meta name="robots" content="noindex" />:<></>}
+	</Fragment>
+	<Fragment slot="body">
+		<ol class="breadcrumb">
+			<li class="crumb"><a class="anchor" href="/blog">Blog</a></li>
+			<li class="crumb-separator" aria-hidden>&rsaquo;</li>
+			<!-- <li class="crumb"><a class="anchor" href="/elements/breadcrumbs">Elements</a></li>
+		<li class="crumb-separator" aria-hidden>&rsaquo;</li> -->
+			<li>{post.data.title}</li>
+		</ol>
+		<div class="flex justify-center mt-8">
+			<div class="flex flex-col gap-4 max-w-4xl">
+				<BlogPreview {...post.data} />
+				<div class=""></div>
+				<Content />
+			</div>
+		</div>
+	</Fragment>
+</Layout>

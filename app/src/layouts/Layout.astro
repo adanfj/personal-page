@@ -1,0 +1,58 @@
+---
+import AppLayout from "../components/AppLayout.svelte";
+import { ViewTransitions } from "astro:transitions";
+interface Props {
+	title: string;
+	cv?: boolean;
+}
+const { title, cv } = Astro.props;
+const currentPath = Astro.url.pathname;
+const links = {
+	"/": "Inicio",
+	"/blog/": "Blog",
+	"/about/": "Sobre mí",
+	"/cv/": "CV",
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<slot name="head" />
+		<title>{title}</title>
+		<ViewTransitions/>
+		<script
+			type="module"
+			src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js"
+		></script>
+	</head>
+	<body data-theme="gold-nouveau">
+		<AppLayout
+			cv={cv}
+			client:visible
+			socialMedia={{
+				Facebook: new URL(
+					"https://www.facebook.com/people/Adan-FJ-Oficial/61552076938560/",
+				),
+				Youtube: new URL(
+					"https://www.youtube.com/channel/UCIGFE-morCmQsJ93ypV94ww",
+				),
+				Twitch: new URL("https://www.twitch.tv/adan_fj"),
+				Instagram: new URL("https://instagram.com/adanf.j/"),
+				Patreon: new URL("https://patreon.com/AdanFJOficial"),
+				Paypal: new URL(
+					"https://www.paypal.com/donate/?hosted_button_id=D5B8VQWCM9S3L",
+				),
+			}}
+			links={links}
+			currentPath={currentPath}
+		>
+			<slot name="body" />
+		</AppLayout>
+	</body>
+</html>

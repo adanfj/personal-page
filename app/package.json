@@ -1,0 +1,51 @@
+{
+    "scripts": {
+        "dev": "astro dev --port 4000 --host",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview"
+    },
+    "type": "module",
+    "devDependencies": {
+        "@iconify/icons-ic": "latest",
+        "@iconify/icons-simple-icons": "latest",
+        "@iconify/svelte": "latest",
+        "@skeletonlabs/skeleton": "latest",
+        "@skeletonlabs/tw-plugin": "latest",
+        "@tailwindcss/forms": "latest",
+        "@types/jsonwebtoken": "latest",
+        "@types/node": "latest",
+        "astro": "latest",
+        "bcryptjs": "latest",
+        "jsonwebtoken": "latest",
+        "prisma": "latest",
+        "svelte-fa": "latest",
+        "ts-node": "latest",
+        "typescript": "latest"
+      },
+      "dependencies": {
+        "@astrojs/mdx": "latest",
+        "@astrojs/svelte": "latest",
+        "@astrojs/tailwind": "latest",
+        "@fortawesome/free-brands-svg-icons": "latest",
+        "@fortawesome/free-solid-svg-icons": "latest",
+        "astro-imagetools": "latest",
+        "astro-purgecss": "latest",
+        "astro-seo-meta": "latest",
+        "astro-seo-schema": "latest",
+        "iconify-icon": "latest",
+        "purgecss": "latest",
+        "schema-dts": "latest",
+        "svelte": "latest",
+        "tailwindcss": "latest",
+        "@astrojs/react": "latest",
+        "@types/react": "latest",
+        "@types/react-dom": "latest",
+        "clsx": "latest",
+        "framer-motion": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "tailwind-merge": "latest"
+      }
+
+}
