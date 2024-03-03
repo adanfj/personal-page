@@ -2,7 +2,10 @@ version: '3.9'
 
 services:
   app:
-    build: app
+    build: 
+      context: app
+      dockerfile: Dockerfile
+      target: build
     env_file:
       - .env
     ports:
@@ -15,7 +18,7 @@ services:
       - ./app/tailwind.config.mjs:/app/tailwind.config.mjs
       - ./app/package.json:/app/package.json
       - .env:/app/.env
-      - ./cdn:/app/public
+      - ./app/public:/app/public
 
 volumes:
   db:
