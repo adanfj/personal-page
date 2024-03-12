@@ -13,8 +13,8 @@ services:
     volumes:
       - ./app/src:/app/src
       - ./app/tsconfig.json:/app/tsconfig.json
-      - ./app/astro.config.mjs:/app/astro.config.mjs
       - ./app/svelte.config.js:/app/svelte.config.js
+      - ./app/astro.config.mjs:/app/astro.config.mjs
       - ./app/tailwind.config.mjs:/app/tailwind.config.mjs
       - ./app/package.json:/app/package.json
       - .env:/app/.env
