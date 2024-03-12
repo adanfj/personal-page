@@ -66,7 +66,7 @@
          >
              <!-- <Fa icon={faVideo} size="2x" /> -->
              <!-- <Icon icon={twotoneWebStories} width="3rem" /> -->
-             <img src="/logo.png" alt="" class="rounded-full" width="60rem">
+             <img src="/logo.jpg" alt="" class="rounded-full" width="60rem">
              <h2 class="">Adan</h2>
          </a>
          <div
